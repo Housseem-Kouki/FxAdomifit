@@ -135,7 +135,18 @@ public class AdomifitRegime {
 //         servSuiv.addSuiviRegime(sr);
 
  
-        
+       
+
+
+
+
+             //affichage All calendar
+      CalendarService serCal = new CalendarService();
+       serCal.getAll().forEach(System.out::println);
+       
+       
+       
+       
     }
     
 }

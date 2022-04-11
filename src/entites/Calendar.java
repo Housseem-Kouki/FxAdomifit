@@ -5,6 +5,7 @@
 package entites;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 /**
@@ -14,8 +15,9 @@ import java.time.LocalDateTime;
 public class Calendar {
      private int id; 
      private String title;
-     private Date start;
-     private Date end;
+     private Timestamp start;
+     private Timestamp end;
+     
      private String description;
      private boolean allday;
      private String background_color;
@@ -27,7 +29,7 @@ public class Calendar {
     public Calendar() {
     }
 
-    public Calendar(int id, String title, Date start, Date end, String description, boolean allday, String background_color, String border_color, String text_color, int suivi_regime_id, boolean checked) {
+    public Calendar(int id, String title, Timestamp start, Timestamp end, String description, boolean allday, String background_color, String border_color, String text_color, int suivi_regime_id, boolean checked) {
         this.id = id;
         this.title = title;
         this.start = start;
@@ -41,7 +43,7 @@ public class Calendar {
         this.checked = checked;
     }
 
-    public Calendar(String title, Date start, Date end, String description, boolean allday, String background_color, String border_color, String text_color, int suivi_regime_id, boolean checked) {
+    public Calendar(String title, Timestamp start, Timestamp end, String description, boolean allday, String background_color, String border_color, String text_color, int suivi_regime_id, boolean checked) {
         this.title = title;
         this.start = start;
         this.end = end;
@@ -70,19 +72,19 @@ public class Calendar {
         this.title = title;
     }
 
-    public Date getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(Timestamp start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public Timestamp getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(Timestamp end) {
         this.end = end;
     }
 

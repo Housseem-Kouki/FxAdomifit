@@ -39,7 +39,7 @@ public class CalendarService {
             ste = connexion.createStatement();
            rs= ste.executeQuery(requete);
             while (rs.next()) { 
-list.add(new Calendar(rs.getInt("id"), rs.getString("title"), rs.getDate("start"), rs.getDate("end"), rs.getString("description"), rs.getBoolean("allday"),
+list.add(new Calendar(rs.getInt("id"), rs.getString("title"), rs.getTimestamp("start"), rs.getTimestamp("end"), rs.getString("description"), rs.getBoolean("allday"),
         rs.getString("background_color"), rs.getString("border_color"), rs.getString("text_color"),rs.getInt("suivi_regime_id"), rs.getBoolean("checked")) );              
 
             }
@@ -57,11 +57,11 @@ list.add(new Calendar(rs.getInt("id"), rs.getString("title"), rs.getDate("start"
         try {
             pst = connexion.prepareStatement(requete);
             pst.setString(1, c.getTitle());
-            pst.setDate(2, c.getStart());
-            pst.setDate(3, c.getEnd());
+            pst.setTimestamp(2, c.getStart());
+            pst.setTimestamp(3, c.getEnd());
             pst.setString(4, c.getDescription());
             pst.setBoolean(5, c.isAllday());
-            
+     
             pst.setString(6, c.getBackground_color());
             pst.setString(7, c.getBorder_color());
             pst.setString(8, c.getText_color());
