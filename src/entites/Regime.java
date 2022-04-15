@@ -20,10 +20,13 @@ public class Regime {
     private String image; 
     private String dificulte; 
     private float prix;
+    private LocalDateTime created_at;
+    private int user_id;
+    
     
     private int categorie_regime_id ;
-    private int user_id;
-    private LocalDateTime created_at;
+     
+    private CategorieRegime categorie;
     
       
         

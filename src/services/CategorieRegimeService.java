@@ -15,6 +15,8 @@ import java.util.List;
 import utils.DataSource;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -32,7 +34,7 @@ public class CategorieRegimeService {
     
     public List<CategorieRegime> getAll(){
      String requete="select * from categorie_regime";
-     List<CategorieRegime> list = new ArrayList<>();
+     List<CategorieRegime> list =new ArrayList();
         try {
             ste = connexion.createStatement();
            rs= ste.executeQuery(requete);
