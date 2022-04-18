@@ -21,6 +21,10 @@ public class DataSource {
     private static DataSource instance;
     private Connection conn;
     
+ 
+    public static final String URL_UPLOAD="jdbc:mysql://localhost:3306/imageServer.php";
+    public static  final String URL_Image ="jdbc:mysql://localhost:3306/adomifitt/public/uploads/images/";
+    
     private DataSource() {
         try {
             conn = DriverManager.getConnection(url, login, pwd);

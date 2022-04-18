@@ -64,7 +64,7 @@ public class CategorieRegime {
 
     @Override
     public String toString() {
-        return "CategorieRegime{" + "id=" + id + ", libelle=" + libelle + ", description=" + description + ", statcolor=" + statcolor + '}';
+        return libelle ;
     }
     
     

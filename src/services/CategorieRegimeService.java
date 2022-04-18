@@ -31,7 +31,7 @@ public class CategorieRegimeService {
     public CategorieRegimeService() {
         connexion = DataSource.getInstance().getConn();
     }
-    
+   
     public List<CategorieRegime> getAll(){
      String requete="select * from categorie_regime";
      List<CategorieRegime> list =new ArrayList();

@@ -54,6 +54,20 @@ public class Regime {
         this.user_id = user_id;
     }
 
+    public Regime(int id, String type, String description, String image, String dificulte, float prix, int user_id, int categorie_regime_id, CategorieRegime categorie) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+        this.image = image;
+        this.dificulte = dificulte;
+        this.prix = prix;
+        this.user_id = user_id;
+        this.categorie_regime_id = categorie_regime_id;
+        this.categorie = categorie;
+    }
+
+   
+
     public int getId() {
         return id;
     }
@@ -124,6 +138,14 @@ public class Regime {
 
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
+    }
+
+    public CategorieRegime getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(CategorieRegime categorie) {
+        this.categorie = categorie;
     }
      
     @Override

@@ -4,7 +4,9 @@
  */
 package services;
 
+import entites.CategorieRegime;
 import entites.Regime;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,9 +39,17 @@ public class RegimeService {
         try {
             ste = connexion.createStatement();
            rs= ste.executeQuery(requete);
-            while (rs.next()) { 
-                list.add(new Regime(rs.getInt("id"),rs.getString("type"),rs.getString("description"),rs.getString("dificulte"),rs.getString("image"),
-                rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id")) );              
+            while (rs.next()) {
+                CategorieRegimeService ss = new CategorieRegimeService();
+                CategorieRegime categorie = new CategorieRegime();
+              categorie =  ss.getCategorieRegime(rs.getInt("categorie_regime_id"));
+              
+//                list.add(new Regime(rs.getInt("id"),rs.getString("type"),rs.getString("description"),rs.getString("dificulte"),rs.getString("image"),
+//                rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id")) );
+                
+                
+                list.add(new Regime(rs.getInt("id"), rs.getString("type"), rs.getString("description"),
+                        rs.getString("dificulte"), rs.getString("image"),rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id"), categorie));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CategorieRegimeService.class.getName()).log(Level.SEVERE, null, ex);

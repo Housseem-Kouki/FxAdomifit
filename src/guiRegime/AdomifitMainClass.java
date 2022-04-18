@@ -24,12 +24,12 @@ import javafx.stage.StageStyle;
  * @author Kouki
  */
 public class AdomifitMainClass extends Application {
-    private double x , y ; 
+
     
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("DashboardNutritionniste.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("CategorieRegime.fxml"));
                     stage.setTitle("Adomifit");
         stage.setScene(new Scene(root));
        
