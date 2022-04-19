@@ -27,12 +27,12 @@
                   <Image url="@../images/jimmy-fallon.png" />
                </image>
             </ImageView>
-            <Text layoutX="334.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes régimes publiés">
+            <Text layoutX="338.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes régimes publiés">
                <font>
                   <Font name="Arial Bold Italic" size="27.0" />
                </font>
             </Text>
-            <TableView fx:id="tabRegime" layoutX="2.0" layoutY="144.0" prefHeight="352.0" prefWidth="1066.0">
+            <TableView fx:id="tabRegime" layoutX="3.0" layoutY="118.0" prefHeight="352.0" prefWidth="1066.0">
               <columns>
                 <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
                 <TableColumn fx:id="colDescription" prefWidth="406.0" text="Description" />
@@ -43,7 +43,8 @@
                   <TableColumn fx:id="colActions" prefWidth="91.0" text="Actions" />
               </columns>
             </TableView>
-            <Button fx:id="btn_ajouter" contentDisplay="CENTER" layoutX="14.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#ajouterRegime" text="Ajouter Régime" textFill="#08110b" />
+            <Button fx:id="btn_ajouter" contentDisplay="CENTER" layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#ajouterRegime" text="Ajouter Régime" textFill="#08110b" />
+            <ImageView fx:id="imageRegime" fitHeight="150.0" fitWidth="200.0" layoutX="404.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" />
          </children>
        </Pane>
        

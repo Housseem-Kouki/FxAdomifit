@@ -117,7 +117,7 @@ String requete="insert into regime (type,description,dificulte,image,prix,catego
             
                public void updateRegime(Regime r){
       String requete="UPDATE regime SET type = '"+r.getType()+"' , description ='"+r.getDescription()+"', dificulte ='"+r.getDificulte()+"', image ='"+r.getImage()+
-              "', dificulte ='"+r.getImage()+"', prix ='"+r.getPrix()+"', categorie_regime_id ='"+r.getCategorie_regime_id()+"', user_id ='"+r.getUser_id()+
+           "', prix ='"+r.getPrix()+"', categorie_regime_id ='"+r.getCategorie_regime_id()+"', user_id ='"+r.getUser_id()+
               "' where id='" + r.getId() + "' ";
        try {
             ste = connexion.createStatement();

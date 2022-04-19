@@ -33,7 +33,7 @@ public class Regime {
     public Regime() {
     }
 
-    public Regime(int id, String type, String description, String image, String dificulte, float prix, int categorie_regime_id, int user_id) {
+    public Regime(int id, String type, String description,  String dificulte, String image, float prix, int categorie_regime_id, int user_id) {
         this.id = id;
         this.type = type;
         this.description = description;
@@ -44,7 +44,7 @@ public class Regime {
         this.user_id = user_id;
     }
 
-    public Regime(String type, String description, String image, String dificulte, float prix, int categorie_regime_id, int user_id) {
+    public Regime(String type, String description,  String dificulte, String image, float prix, int categorie_regime_id, int user_id) {
         this.type = type;
         this.description = description;
         this.image = image;
@@ -54,7 +54,7 @@ public class Regime {
         this.user_id = user_id;
     }
 
-    public Regime(int id, String type, String description, String image, String dificulte, float prix, int user_id, int categorie_regime_id, CategorieRegime categorie) {
+    public Regime(int id, String type, String description,  String dificulte, String image,float prix, int user_id, int categorie_regime_id, CategorieRegime categorie) {
         this.id = id;
         this.type = type;
         this.description = description;

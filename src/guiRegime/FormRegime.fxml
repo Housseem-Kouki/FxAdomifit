@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -22,12 +23,13 @@
             <TextArea fx:id="descriptionTF" layoutX="225.0" layoutY="87.0" prefHeight="83.0" prefWidth="200.0" />
             <TextField fx:id="dificulteTF" layoutX="225.0" layoutY="215.0" />
             <TextField fx:id="imageTF" layoutX="181.0" layoutY="306.0" />
-            <ComboBox fx:id="CombolistCategorie" layoutX="225.0" layoutY="251.0" prefWidth="150.0" />
-            <Button fx:id="btn_ajout" layoutX="101.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#save" text="Save" />
+            <ComboBox fx:id="CombolistCategorie" layoutX="225.0" layoutY="251.0" prefHeight="31.0" prefWidth="198.0" promptText="--Select Categorie --" />
+            <Button fx:id="btn_ajout" layoutX="130.0" layoutY="393.0" mnemonicParsing="false" onMouseClicked="#save" text="Save" />
             <Label layoutX="55.0" layoutY="181.0" text="Prix :" />
             <TextField fx:id="prixTF" layoutX="225.0" layoutY="176.0" />
-            <Button fx:id="btn_cancel" layoutX="210.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#closeDialog" text="Cancel" />
-            <Button fx:id="btnUpload" accessibleRole="IMAGE_VIEW" layoutX="380.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#uploadImage" text="Button" />
+            <Button fx:id="btn_cancel" layoutX="304.0" layoutY="393.0" mnemonicParsing="false" onMouseClicked="#closeDialog" text="Cancel" />
+            <Button fx:id="btnUpload" accessibleRole="IMAGE_VIEW" layoutX="380.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#uploadImage" text="Upload" />
+            <ImageView fx:id="Image" fitHeight="129.0" fitWidth="200.0" layoutX="286.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </content>

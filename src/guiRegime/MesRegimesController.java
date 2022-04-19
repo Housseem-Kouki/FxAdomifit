@@ -8,6 +8,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entites.CategorieRegime;
 import entites.Regime;
+import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +31,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -75,13 +77,15 @@ public class MesRegimesController implements Initializable {
     @FXML
     private TableColumn<Regime, Float> colPrix;
     @FXML
-    private TableColumn<Regime, String> colImage;
+    private TableColumn<Regime, ImageView> colImage;
     @FXML
     private TableColumn<Regime, String> colActions;
     @FXML
     private TableColumn<Regime, String> colCategorie;
     @FXML
     private Button btn_ajouter;
+    @FXML
+    private ImageView imageRegime;
     
       
     /**
@@ -130,12 +134,19 @@ public class MesRegimesController implements Initializable {
        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));     
        colDificulte.setCellValueFactory(new PropertyValueFactory<>("dificulte")); 
-       colPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));    
+    
        colImage.setCellValueFactory(new PropertyValueFactory<>("image"));
+     
+       colImage.setPrefWidth(90);
        colCategorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
-       
+       colPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));    
+        
+      
        Callback<TableColumn<Regime, String>, TableCell<Regime, String>> cellFoctory = (TableColumn<Regime, String> param) -> {
            final TableCell<Regime, String> cell = new TableCell<Regime, String>() {
+  
+              
+               
                 @Override
                 public void updateItem(String item, boolean empty) {
                 super.updateItem(item, empty);
@@ -145,7 +156,7 @@ public class MesRegimesController implements Initializable {
                         setText(null);
 
                     } else {
-
+                           
                         FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
                         deleteIcon.setStyle(
@@ -209,12 +220,30 @@ public class MesRegimesController implements Initializable {
                         setText(null);
                     }
                 }
+       
+
+  
+
            };
            
         return cell;
     };
        colActions.setCellFactory(cellFoctory);
        tabRegime.setItems(ob);
+       tabRegime.setRowFactory( tv -> {
+    TableRow<Regime> row = new TableRow<>();
+    row.setOnMouseClicked(event -> {
+        if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+            Regime rowData = row.getItem();
+             String path = "C:\\xampp\\htdocs\\adomifitt\\public\\uploads\\images\\"+rowData.getImage();
+               File file=new File(path);
+              Image img = new Image(file.toURI().toString());
+              imageRegime.setImage(img);
+           
+        }
+    });
+    return row ;
+});
             }
     
 
