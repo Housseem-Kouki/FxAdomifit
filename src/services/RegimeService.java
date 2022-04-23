@@ -109,7 +109,7 @@ String requete="insert into regime (type,description,dificulte,image,prix,catego
                  
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CategorieRegimeService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegimeService.class.getName()).log(Level.SEVERE, null, ex);
         }
             return r;
     }

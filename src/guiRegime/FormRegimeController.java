@@ -54,10 +54,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import services.CategorieRegimeService;
 import services.RegimeService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -140,7 +144,15 @@ public class FormRegimeController implements Initializable {
         RegimeService rs = new RegimeService();
         rs.addRegime(r);
          
-        
+                        String titles = "régime ajouté ";
+                String msgs = "avec succées";
+                TrayNotification trays = new TrayNotification();
+                AnimationType types = AnimationType.SLIDE;
+                trays.setAnimationType(types);
+                trays.setTitle(titles);
+                trays.setMessage(msgs);
+                trays.showAndDismiss(Duration.seconds(5));
+                trays.setNotificationType(NotificationType.SUCCESS);
         }
     //update
         else{
@@ -148,7 +160,15 @@ public class FormRegimeController implements Initializable {
             Regime r = new Regime(regimeId,typeTF.getText(), descriptionTF.getText(), dificulteTF.getText(), imageTF.getText(), p,CombolistCategorie.getValue().getId(), 2);
              RegimeService regserv = new RegimeService();
              regserv.updateRegime(r);
-        
+                        String titles = "régime modifié ";
+                String msgs = "avec succées";
+                TrayNotification trays = new TrayNotification();
+                AnimationType types = AnimationType.SLIDE;
+                trays.setAnimationType(types);
+                trays.setTitle(titles);
+                trays.setMessage(msgs);
+                trays.showAndDismiss(Duration.seconds(5));
+                trays.setNotificationType(NotificationType.SUCCESS);
         }
         
         

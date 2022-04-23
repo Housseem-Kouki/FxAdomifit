@@ -29,10 +29,11 @@ public class AdomifitMainClass extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("CategorieRegime.fxml"));
-                    stage.setTitle("Adomifit");
+        //  Parent root = FXMLLoader.load(getClass().getResource("CategorieRegime.fxml"));
+          Parent root = FXMLLoader.load(getClass().getResource("FrontRegime.fxml"));
+      //   Parent root = FXMLLoader.load(getClass().getResource("SuiviRegimeExiste.fxml"));
+        stage.setTitle("Adomifit");
         stage.setScene(new Scene(root));
-       
         stage.show();
         } catch (IOException ex) {
             Logger.getLogger(AdomifitMainClass.class.getName()).log(Level.SEVERE, null, ex);

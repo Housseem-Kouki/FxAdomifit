@@ -28,7 +28,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import services.CategorieRegimeService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -85,7 +89,17 @@ public class UpdateCategorieRegimeController implements Initializable {
             
              CategorieRegimeService cs = new CategorieRegimeService();
              cs.update(cr);
-         
+           String titles = "Catégorie modifié ";
+                String msgs = "avec succées";
+                TrayNotification trays = new TrayNotification();
+                AnimationType types = AnimationType.SLIDE;
+                trays.setAnimationType(types);
+                trays.setTitle(titles);
+                trays.setMessage(msgs);
+                trays.showAndDismiss(Duration.seconds(5));
+                trays.setNotificationType(NotificationType.SUCCESS);
+                     
+                        
           Stage stage = (Stage) libelleTF.getScene().getWindow();
     // do what you have to do
     FXMLLoader loader = new FXMLLoader ();
@@ -97,7 +111,7 @@ public class UpdateCategorieRegimeController implements Initializable {
                             }
         CategorieRegimeController controller = loader.getController();
                             controller.displayTabCategorie();
-
+                                    
                              Parent parent = loader.getRoot();
                             Stage staged = new Stage();
                             staged.setScene(new Scene(parent));

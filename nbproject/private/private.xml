@@ -3,9 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/AdomifitRegime/src/guiRegime/UpdateCategorieRegimeController.java</file>
-            <file>file:/C:/xampp/htdocs/AdomifitRegime/src/guiRegime/CategorieRegimeController.java</file>
-            <file>file:/C:/xampp/htdocs/AdomifitRegime/src/guiRegime/MesRegimesController.java</file>
+            <file>file:/C:/xampp/htdocs/AdomifitRegime/src/guiRegime/AdomifitMainClass.java</file>
+            <file>file:/C:/xampp/htdocs/AdomifitRegime/src/guiRegime/FrontRegimeController.java</file>
         </group>
     </open-files>
 </project-private>

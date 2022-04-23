@@ -30,6 +30,36 @@ public class SuiviRegimeService {
          connexion = DataSource.getInstance().getConn();
     }
     
+   
+        public  SuiviRegime getSuiviUser(int id) {
+     
+       
+          String requete = "select * FROM suivi_regime WHERE user_id = '" + id + "'";
+           SuiviRegime r = new SuiviRegime();
+            
+           try {
+            ste = connexion.createStatement();
+            rs= ste.executeQuery(requete);
+                         
+            while (rs.next()) { 
+                
+             
+                 r.setId(rs.getInt("id"));
+                 
+                 r.setNote(rs.getInt("note"));
+                 r.setRemarque(rs.getString("remarque"));
+                 r.setRegime_id(rs.getInt("regime_id"));
+                 r.setUser_id(id);
+                 r.setTitre(rs.getString("titre"));
+            
+                 
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SuiviRegime.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return r;
+    }
+    
         public List<SuiviRegime> getAll(){
      String requete="select * from suivi_regime";
      List<SuiviRegime> list = new ArrayList<>();

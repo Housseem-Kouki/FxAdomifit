@@ -23,12 +23,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -43,7 +45,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
+import javafx.util.Duration;
 import services.RegimeService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -86,6 +92,8 @@ public class MesRegimesController implements Initializable {
     private Button btn_ajouter;
     @FXML
     private ImageView imageRegime;
+    @FXML
+    private Pagination paginator;
     
       
     /**
@@ -93,6 +101,7 @@ public class MesRegimesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       
        displayTabRegime();
     }    
          @FXML
@@ -182,6 +191,16 @@ public class MesRegimesController implements Initializable {
                                     Regime reg = tabRegime.getSelectionModel().getSelectedItem();
                                     regServ.deleteRegime(reg.getId());
                                     displayTabRegime();
+                String titles = "régime supprimé ";
+                String msgs = "avec succées";
+                TrayNotification trays = new TrayNotification();
+                AnimationType types = AnimationType.SLIDE;
+                trays.setAnimationType(types);
+                trays.setTitle(titles);
+                trays.setMessage(msgs);
+                trays.showAndDismiss(Duration.seconds(5));
+                trays.setNotificationType(NotificationType.SUCCESS);
+                   
                                     } else if (result.get() == noButton) {
                                  
                                  displayTabRegime();

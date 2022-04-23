@@ -159,7 +159,7 @@ public class CategorieRegimeController implements Initializable {
                                   
                                     CategorieRegime categorie = tabCategories.getSelectionModel().getSelectedItem();
                                     cs.deleteCategorieRegime(categorie.getId());
-                                    String titles = "Catégorie supprimée ";
+                String titles = "Catégorie supprimée ";
                 String msgs = "avec succées";
                 TrayNotification trays = new TrayNotification();
                 AnimationType types = AnimationType.SLIDE;
@@ -192,7 +192,9 @@ public class CategorieRegimeController implements Initializable {
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
-                            stage.show();   
+                            stage.show(); 
+                            
+               
                         });
                         
                               
@@ -302,6 +304,16 @@ public class CategorieRegimeController implements Initializable {
          descriptionTF.setText(null);
          statColorTF.setValue(null);
          displayTabCategorie();
+                String titles = "Catégorie ajouté ";
+                String msgs = "avec succées";
+                TrayNotification trays = new TrayNotification();
+                AnimationType types = AnimationType.SLIDE;
+                trays.setAnimationType(types);
+                trays.setTitle(titles);
+                trays.setMessage(msgs);
+                trays.showAndDismiss(Duration.seconds(5));
+                trays.setNotificationType(NotificationType.SUCCESS);
+                        
         }
     }
 
