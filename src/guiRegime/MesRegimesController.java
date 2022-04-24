@@ -138,7 +138,9 @@ public class MesRegimesController implements Initializable {
     FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
     FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
         RegimeService regServ = new RegimeService();
-      List<Regime> regList = regServ.getAll();
+        //les regime de user connecté
+        //session user id 2
+      List<Regime> regList = regServ.getMesRegime(2);
       ObservableList<Regime> ob = FXCollections.observableArrayList(regList);
        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));     

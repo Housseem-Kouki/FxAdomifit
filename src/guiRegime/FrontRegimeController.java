@@ -127,22 +127,17 @@ public class FrontRegimeController implements Initializable {
         SuiviRegimeService Ssuiv = new SuiviRegimeService();
        List<SuiviRegime> listSiuv = Ssuiv.getAll();
        //Session userid  remplace 4
-       SuiviRegime ss = Ssuiv.getSuiviUser(4);
-        
-        boolean b = listSiuv.contains(ss);
-        
-        System.out.println("contains : "+listSiuv.contains(ss.getId()));
-       if(listSiuv.contains(ss.getId()) == false){
-            System.out.println("le suivi non disponible : ");
+       SuiviRegime ss = Ssuiv.getSuiviUser(2);
+      
+       if(listSiuv.contains(ss) == false){
+            
             //Session userid remplace 2
             Ssuiv.addSuiviRegime(new SuiviRegime(null, null, 0, regAch.getId(), 2));
-            System.out.println("regime acheter avec succes : ");
+            
+            System.out.println("regime acheter avec succes ");
             
        }else{
-            System.out.println("le suivi a acheter est : "+ss);
-           
-            
-              try {
+            try {
             fxml = FXMLLoader.load(getClass().getResource("SuiviRegimeExiste.fxml"));
             root.getChildren().removeAll();
             root.getChildren().setAll(fxml);

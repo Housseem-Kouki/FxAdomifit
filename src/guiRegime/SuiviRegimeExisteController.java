@@ -50,6 +50,13 @@ private Parent fxml;
 
     @FXML
     private void showSuiviRegimeUser(MouseEvent event) {
+              try {
+            fxml = FXMLLoader.load(getClass().getResource("showSuiviRegime.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(CategorieRegimeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

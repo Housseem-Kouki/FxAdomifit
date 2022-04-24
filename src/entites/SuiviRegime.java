@@ -88,5 +88,35 @@ public class SuiviRegime {
     public String toString() {
         return "SuiviRegime{" + "id=" + id + ", titre=" + titre + ", remarque=" + remarque + ", note=" + note + ", regime_id=" + regime_id + ", user_id=" + user_id + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final SuiviRegime other = (SuiviRegime) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.regime_id != other.regime_id) {
+            return false;
+        }
+        return this.user_id == other.user_id;
+    }
+    
+    
     
 }

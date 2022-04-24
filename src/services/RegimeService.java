@@ -32,6 +32,29 @@ public class RegimeService {
     public RegimeService() {
         connexion = DataSource.getInstance().getConn();
     }
+            public List<Regime> getMesRegime(int id){
+     String requete="select * from regime where user_id = "+id;
+     List<Regime> list = new ArrayList<>();
+        try {
+            ste = connexion.createStatement();
+           rs= ste.executeQuery(requete);
+            while (rs.next()) {
+                CategorieRegimeService ss = new CategorieRegimeService();
+                CategorieRegime categorie = new CategorieRegime();
+              categorie =  ss.getCategorieRegime(rs.getInt("categorie_regime_id"));
+              
+//                list.add(new Regime(rs.getInt("id"),rs.getString("type"),rs.getString("description"),rs.getString("dificulte"),rs.getString("image"),
+//                rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id")) );
+                
+                
+                list.add(new Regime(rs.getInt("id"), rs.getString("type"), rs.getString("description"),
+                        rs.getString("dificulte"), rs.getString("image"),rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id"), categorie));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategorieRegimeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     
         public List<Regime> getAll(){
      String requete="select * from regime";
