@@ -12,6 +12,7 @@ import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -92,8 +93,6 @@ public class MesRegimesController implements Initializable {
     private Button btn_ajouter;
     @FXML
     private ImageView imageRegime;
-    @FXML
-    private Pagination paginator;
     
       
     /**
@@ -101,7 +100,7 @@ public class MesRegimesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+       LocalDate todaysDate = LocalDate.now();
        displayTabRegime();
     }    
          @FXML
@@ -115,8 +114,15 @@ public class MesRegimesController implements Initializable {
         }
     }
 
+   @FXML
     void showListeSuivis(MouseEvent event) {
-
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("ListeSuivis.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardNutritionnisteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -130,7 +136,15 @@ public class MesRegimesController implements Initializable {
         }
     }
 
+    @FXML
     void showStatistique(MouseEvent event) {
+               try {
+            fxml = FXMLLoader.load(getClass().getResource("StatistiqueRegime.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(CategorieRegimeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
     

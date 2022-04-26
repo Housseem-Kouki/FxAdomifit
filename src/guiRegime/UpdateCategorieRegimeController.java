@@ -109,7 +109,7 @@ public class UpdateCategorieRegimeController implements Initializable {
                             } catch (IOException ex) {
                                 Logger.getLogger(CategorieRegimeController.class.getName()).log(Level.SEVERE, null, ex);
                             }
-        CategorieRegimeController controller = loader.getController();
+                         CategorieRegimeController controller = loader.getController();
                             controller.displayTabCategorie();
                                     
                              Parent parent = loader.getRoot();

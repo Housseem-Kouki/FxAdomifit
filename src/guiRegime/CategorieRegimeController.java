@@ -232,10 +232,16 @@ public class CategorieRegimeController implements Initializable {
         }
     }
 
+    @FXML
     void showListeSuivis(MouseEvent event) {
-
+        try {
+            fxml = FXMLLoader.load(getClass().getResource("ListeSuivis.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(DashboardNutritionnisteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
     @FXML
     void showMesRegimes(MouseEvent event) {
         try {
@@ -247,8 +253,15 @@ public class CategorieRegimeController implements Initializable {
         }
     }
 
+    @FXML
     void showStatistique(MouseEvent event) {
-
+ try {
+            fxml = FXMLLoader.load(getClass().getResource("StatistiqueRegime.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(CategorieRegimeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

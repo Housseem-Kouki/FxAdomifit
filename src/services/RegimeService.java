@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.DataSource;
 
 /**
@@ -151,6 +153,33 @@ String requete="insert into regime (type,description,dificulte,image,prix,catego
         }
         
     } 
+               
+               
+               
+               
+                 public ObservableList<Regime> getSearch(String s){
+    String requete ="select * from regime where type LIKE '%" + s + "%' OR description LIKE '%" + s + "%'OR dificulte LIKE '%"+s+"%' " ;
+     ObservableList<Regime> list = FXCollections.observableArrayList();
+        try {
+            ste = connexion.createStatement();
+           rs= ste.executeQuery(requete);
+            while (rs.next()) {
+                CategorieRegimeService ss = new CategorieRegimeService();
+                CategorieRegime categorie = new CategorieRegime();
+              categorie =  ss.getCategorieRegime(rs.getInt("categorie_regime_id"));
+              
+//                list.add(new Regime(rs.getInt("id"),rs.getString("type"),rs.getString("description"),rs.getString("dificulte"),rs.getString("image"),
+//                rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id")) );
+                
+                
+                list.add(new Regime(rs.getInt("id"), rs.getString("type"), rs.getString("description"),
+                        rs.getString("dificulte"), rs.getString("image"),rs.getFloat("prix"),rs.getInt("categorie_regime_id"),rs.getInt("user_id"), categorie));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategorieRegimeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
        
     
 }

@@ -15,6 +15,8 @@ public class SuiviRegime {
     private int note; 
     private int regime_id;
     private int user_id;
+    
+    private Regime regime;
 
     public SuiviRegime() {
     }
@@ -35,6 +37,20 @@ public class SuiviRegime {
         this.regime_id = regime_id;
         this.user_id = user_id;
     }
+
+    public SuiviRegime(int id, String titre, String remarque, int note, int regime_id, int user_id, Regime regime) {
+        this.id = id;
+        this.titre = titre;
+        this.remarque = remarque;
+        this.note = note;
+        this.regime_id = regime_id;
+        this.user_id = user_id;
+        this.regime = regime;
+    }
+
+ 
+    
+    
 
     public int getId() {
         return id;
@@ -86,7 +102,7 @@ public class SuiviRegime {
 
     @Override
     public String toString() {
-        return "SuiviRegime{" + "id=" + id + ", titre=" + titre + ", remarque=" + remarque + ", note=" + note + ", regime_id=" + regime_id + ", user_id=" + user_id + '}';
+        return "SuiviRegime{" + "id=" + id + ", titre=" + titre + ", remarque=" + remarque + ", note=" + note + ", regime_id=" + regime_id + ", user_id=" + user_id +  ", regime=" + regime + '}';
     }
 
     @Override
@@ -115,6 +131,14 @@ public class SuiviRegime {
             return false;
         }
         return this.user_id == other.user_id;
+    }
+
+    public Regime getRegime() {
+        return regime;
+    }
+
+    public void setRegime(Regime regime) {
+        this.regime = regime;
     }
     
     

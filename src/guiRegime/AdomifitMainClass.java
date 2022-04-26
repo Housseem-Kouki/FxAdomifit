@@ -5,6 +5,8 @@ package guiRegime;
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
+import com.calendarfx.model.Calendar;
+import com.calendarfx.view.CalendarView;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -28,10 +31,11 @@ public class AdomifitMainClass extends Application {
     
     @Override
     public void start(Stage stage) {
+       
         try {
-       //  Parent root = FXMLLoader.load(getClass().getResource("CategorieRegime.fxml"));
-           Parent root = FXMLLoader.load(getClass().getResource("testCalendar.fxml"));
-      //   Parent root = FXMLLoader.load(getClass().getResource("SuiviRegimeExiste.fxml"));
+    // Parent root = FXMLLoader.load(getClass().getResource("CategorieRegime.fxml"));
+          // Parent root = FXMLLoader.load(getClass().getResource("RepasForm.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("FrontRegime.fxml"));
         stage.setTitle("Adomifit");
         stage.setScene(new Scene(root));
         stage.show();

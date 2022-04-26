@@ -4,6 +4,7 @@
  */
 package services;
 
+import entites.Regime;
 import entites.SuiviRegime;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -150,6 +151,30 @@ list.add(new SuiviRegime(rs.getInt("id"),rs.getString("titre"),rs.getString("rem
         }
         
     } 
+           
+        
+           
+              public List<SuiviRegime> getMesSuivis(int id){
+     String requete="SELECT * FROM suivi_regime s , regime r WHERE s.regime_id = r.id and r.user_id = "+id;
+     List<SuiviRegime> list = new ArrayList<>();
+        try {
+            ste = connexion.createStatement();
+           rs= ste.executeQuery(requete);
+            while (rs.next()) { 
+                RegimeService regSer = new RegimeService();
+                Regime regime = new Regime();
+                regime = regSer.getRegime(rs.getInt("regime_id"));
+              
+ list.add(new SuiviRegime(rs.getInt("id"), rs.getString("titre"),rs.getString("remarque"),
+         rs.getInt("note"),rs.getInt("regime_id"), rs.getInt("user_id"),regime));
+//list.add(new SuiviRegime(rs.getInt("id"),rs.getString("titre"),rs.getString("remarque"),rs.getInt("note"),rs.getInt("regime_id"),rs.getInt("user_id"),reg) );              
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategorieRegimeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+           
     
     
     

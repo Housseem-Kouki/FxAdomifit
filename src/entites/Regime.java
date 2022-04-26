@@ -7,6 +7,7 @@ package entites;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Regime {
     private float prix;
     private LocalDateTime created_at;
     private int user_id;
-    
+     ImageView photo ;
     
     private int categorie_regime_id ;
      
@@ -64,6 +65,28 @@ public class Regime {
         this.user_id = user_id;
         this.categorie_regime_id = categorie_regime_id;
         this.categorie = categorie;
+    }
+
+    public Regime(int id, String type, String description, String image, String dificulte, float prix, LocalDateTime created_at, int user_id, ImageView photo, int categorie_regime_id, CategorieRegime categorie) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+        this.image = image;
+        this.dificulte = dificulte;
+        this.prix = prix;
+        this.created_at = created_at;
+        this.user_id = user_id;
+        this.photo = photo;
+        this.categorie_regime_id = categorie_regime_id;
+        this.categorie = categorie;
+    }
+
+    public ImageView getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(ImageView photo) {
+        this.photo = photo;
     }
 
    
@@ -150,7 +173,7 @@ public class Regime {
      
     @Override
     public String toString() {
-        return "Regime{" + "id=" + id + ", type=" + type + ", description=" + description + ", image=" + image + ", dificulte=" + dificulte + ", prix=" + prix + ", categorie_regime_id=" + categorie_regime_id + ", user_id=" + user_id + '}';
+        return type;
     }
     
    

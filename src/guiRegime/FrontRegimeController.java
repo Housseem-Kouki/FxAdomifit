@@ -23,8 +23,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import services.RegimeService;
 import services.SuiviRegimeService;
@@ -58,6 +61,8 @@ public class FrontRegimeController implements Initializable {
     Regime regAch = new Regime();
     @FXML
     private AnchorPane root;
+    @FXML
+    private TextField rechercheTF;
     private void setChosenFruit(Regime regime) {
         regAch = regime;
              RegimeTypeLabel.setText(regime.getType());
@@ -76,6 +81,8 @@ public class FrontRegimeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        
      RegimeService regServ = new RegimeService();
       List<Regime> regList = regServ.getAll();
         if (regList.size() > 0) {
@@ -91,6 +98,7 @@ public class FrontRegimeController implements Initializable {
         int row = 1;
         try {
             for (int i = 0; i < regList.size(); i++) {
+                    
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("BoxRegime.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
@@ -147,6 +155,21 @@ public class FrontRegimeController implements Initializable {
        }
       
        
+    }
+
+    @FXML
+    private void searchRegime(KeyEvent event) {
+        RegimeService rs = new RegimeService();
+        ObservableList<Regime> list = rs.getSearch(rechercheTF.getText());
+         if (list.size() > 0) {
+            setChosenFruit(list.get(0));
+            myListener = new MyListener() {
+                @Override
+                public void onClickListener(Regime regime) {
+                    setChosenFruit(regime);
+                }
+            };
+        }
     }
 
 }

@@ -56,6 +56,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
+import javax.mail.MessagingException;
 import javax.swing.ImageIcon;
 import services.CategorieRegimeService;
 import services.RegimeService;
@@ -145,7 +146,11 @@ public class FormRegimeController implements Initializable {
          Regime r = new Regime(typeTF.getText(), descriptionTF.getText(), dificulteTF.getText(), imageTF.getText(), p,CombolistCategorie.getValue().getId(), 2);
         RegimeService rs = new RegimeService();
         rs.addRegime(r);
-         
+             try {
+                 Mail.sendMail("kuokihoussem@gmail.com", 1, "régime ajouté ");
+             } catch (MessagingException ex) {
+                 Logger.getLogger(FormRegimeController.class.getName()).log(Level.SEVERE, null, ex);
+             }
                         String titles = "régime ajouté ";
                 String msgs = "avec succées";
                 TrayNotification trays = new TrayNotification();
